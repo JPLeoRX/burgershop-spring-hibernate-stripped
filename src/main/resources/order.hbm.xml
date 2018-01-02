@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="org.moskito.demo.burgershop.burgershopstripped.service.Order" table="ORDERS">
+        <!-- ID -->
+        <id name="id" type="int" column="ORDER_ID">
+            <generator class="identity"/>
+        </id>
+
+        <!-- Price -->
+        <property name="totalPrice">
+            <column name="TOTAL_PRICE"/>
+        </property>
+
+        <!-- Items -->
+        <property name="itemBread">
+            <column name="ITEM_BREAD"/>
+        </property>
+        <property name="itemMeat">
+            <column name="ITEM_MEAT"/>
+        </property>
+        <property name="itemExtra">
+            <column name="ITEM_EXTRA"/>
+        </property>
+    </class>
+</hibernate-mapping>

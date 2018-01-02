@@ -1,6 +1,7 @@
 package org.moskito.demo.burgershop.burgershopstripped.ui;
 
 import net.anotheria.util.NumberUtils;
+import org.moskito.demo.burgershop.burgershopstripped.HibernateUtil;
 import org.moskito.demo.burgershop.burgershopstripped.service.Order;
 import org.moskito.demo.burgershop.burgershopstripped.service.ShopService;
 import org.moskito.demo.burgershop.burgershopstripped.service.ShopableItem;
@@ -40,6 +41,10 @@ public class OrderController {
 		for (ShopableItem item : order.getItems()){
 			orderedItems.add(item.getName());
 		}
+
+		// Add the order to the database
+		HibernateUtil.saveObject(order);
+
 		request.setAttribute("ordereditems", orderedItems);
 		request.setAttribute("totalPrice", preparePrice(order));
 
